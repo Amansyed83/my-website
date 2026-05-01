@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>My Search</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 150px;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 400px;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #3b82f6;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🔎 My Search</h1>
+
+    <input type="text" id="searchBox" placeholder="Search the web...">
+    <br>
+    <button onclick="search()">Search</button>
+
+    <script>
+        function search() {
+            let query = document.getElementById("searchBox").value;
+
+            if (query.trim() !== "") {
+                let url = "https://www.bing.com/search?q=" + encodeURIComponent(query);
+                window.location.href = url;
+            }
+        }
+
+        // Press Enter to search
+        document.getElementById("searchBox").addEventListener("keypress", function(e) {
+            if (e.key === "Enter") {
+                search();
+            }
+        });
+    </script>
+
+</body>
+</html>
